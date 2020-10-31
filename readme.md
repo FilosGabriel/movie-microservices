@@ -20,7 +20,7 @@
 ---
 ## Technologies Index
 * Language
-    * Java 13
+    * Java 13 , Groovy (testing)
 * Base Framework
     - Spring Boot 
 * Spring Cloud tools
@@ -44,6 +44,7 @@
 * Testing
     - Junit5 
     - Mockito
+    - Spock
 * Documentation
     - Swagger and [Stoplight](https://stoplight.io/)
 * Utility
