@@ -1,7 +1,7 @@
-package com.filos.users.users;
+package com.filos.users;
 
-import com.filos.users.config.EnableGenerators;
-import com.filos.users.users.config.MongodeeConfig;
+import com.filos.domain.config.EnableGenerators;
+import com.filos.users.config.MongodeeConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

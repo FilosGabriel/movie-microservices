@@ -1,4 +1,4 @@
-package com.filos.users.users.config;
+package com.filos.users.config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;

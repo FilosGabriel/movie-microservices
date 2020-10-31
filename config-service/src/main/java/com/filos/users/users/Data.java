@@ -1,4 +1,4 @@
-package com.filos.users;
+package com.filos.users.users;
 
 import lombok.Getter;
 

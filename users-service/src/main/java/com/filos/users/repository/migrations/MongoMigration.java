@@ -1,6 +1,6 @@
-package com.filos.users.users.repository.migrations;
+package com.filos.users.repository.migrations;
 
-import com.filos.users.users.config.MongobeeContext;
+import com.filos.users.config.MongobeeContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 

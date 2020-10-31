@@ -1,1 +1,1 @@
-package com.filos.users.users.repository;
+package com.filos.users.repository;

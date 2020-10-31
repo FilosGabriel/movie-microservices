@@ -1,4 +1,4 @@
-package com.filos.users.users.utils.security;
+package com.filos.users.security;
 
 import com.google.zxing.qrcode.QRCodeWriter;
 import lombok.AllArgsConstructor;

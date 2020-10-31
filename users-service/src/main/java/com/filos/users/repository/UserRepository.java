@@ -1,10 +1,10 @@
-package com.filos.users.users.repository;
+package com.filos.users.repository;
 
-import com.filos.users.entities.User;
+import com.filos.domain.entities.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserRepositoryComposition {
+public class UserRepository {
     public void createUser(User user) {
 
     }

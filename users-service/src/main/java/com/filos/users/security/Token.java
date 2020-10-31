@@ -1,10 +1,9 @@
-package com.filos.users.users.utils.security;
+package com.filos.users.security;
 
 import com.google.common.io.BaseEncoding;
 import lombok.experimental.UtilityClass;
 
 import java.security.SecureRandom;
-import java.util.Base64;
 
 @UtilityClass
 public class Token {

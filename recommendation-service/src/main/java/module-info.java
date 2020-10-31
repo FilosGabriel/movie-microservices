@@ -1,2 +1,3 @@
-module $MODULE_NAME$ {
+module recommendation.service {
+    requires static lombok;
 }

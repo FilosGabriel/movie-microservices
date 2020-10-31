@@ -1,4 +1,4 @@
-package com.filos.users;
+package com.filos.users.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

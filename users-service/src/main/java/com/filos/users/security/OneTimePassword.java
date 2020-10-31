@@ -1,4 +1,4 @@
-package com.filos.users.users.utils.security;
+package com.filos.users.security;
 
 import lombok.experimental.UtilityClass;
 

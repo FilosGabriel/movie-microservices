@@ -1,2 +1,4 @@
-module $MODULE_NAME$ {
+module suggestion.service {
+    requires static lombok;
+    requires spring.boot.starter;
 }

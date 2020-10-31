@@ -1,4 +1,4 @@
-package com.filos.users.users.config;
+package com.filos.users.config;
 
 import lombok.Getter;
 import lombok.Setter;

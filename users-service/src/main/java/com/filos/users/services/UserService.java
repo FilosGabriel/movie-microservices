@@ -1,8 +1,8 @@
-package com.filos.users.users.services;
+package com.filos.users.services;
 
-import com.filos.users.users.repository.UserRepositoryComposition;
-import com.filos.users.dto.UserDto;
-import com.filos.users.entities.User;
+import com.filos.domain.dto.UserDto;
+import com.filos.domain.entities.User;
+import com.filos.users.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
     private final ModelMapper mapper;
-    private UserRepositoryComposition userRepository;
+    private UserRepository userRepository;
 
     public UserDto createUser(UserDto userDtoRequest) {
         User user = mapper.map(userDtoRequest, User.class);

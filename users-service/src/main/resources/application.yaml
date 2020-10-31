@@ -1,0 +1,5 @@
+mongodee:
+  changes:
+  url:
+
+spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration

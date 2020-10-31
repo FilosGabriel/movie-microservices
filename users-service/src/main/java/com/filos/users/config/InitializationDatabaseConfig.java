@@ -1,4 +1,4 @@
-package com.filos.users.users.config;
+package com.filos.users.config;
 
 import com.github.mongobee.Mongobee;
 import lombok.RequiredArgsConstructor;
@@ -7,12 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
+
 @Configuration
 @RequiredArgsConstructor
 public class InitializationDatabaseConfig {
     private final MongodeeConfig mongodeeConfig;
 
-    @Bean
+//    @Bean
     public Mongobee initDb(final Environment environment, ApplicationContext context) {
         Mongobee migrationRunner = new Mongobee(mongodeeConfig.getUrlMongo());
         migrationRunner.setChangeLogsScanPackage(mongodeeConfig.getPackageToScan());
