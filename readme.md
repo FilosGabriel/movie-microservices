@@ -34,7 +34,7 @@
     - Spring Data Neo4j with Liquigraph - recommendations database
     - Spring Data Redis  - cache and statistics
     - Spring Data Jpa with Flyway(Postgres) 
-    - Spring Data Mongo with Mongobee - user management and movie details
+    - Spring Data Mongo with Mongock - user management and movie details
     - Spring Data Solr - advanced search capabilities
 * Security management
     - Spring Security 
