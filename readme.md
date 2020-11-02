@@ -51,7 +51,7 @@
     - Lombok 
     - ModelMapper - mapper 
 * Other tools
-    - Gradle - dependencies management and dev automation
+    - Maven - dependencies management
 ## Communications between microservices 
 
 
