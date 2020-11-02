@@ -1,0 +1,11 @@
+# valid user create endpoint
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "some user",
+  "password": "A very strong password",
+  "email": "email@domain.com",
+  "firstName": "First name",
+  "lastName": "Last Name"
+}

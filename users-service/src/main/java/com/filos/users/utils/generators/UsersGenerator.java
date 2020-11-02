@@ -1,6 +1,6 @@
-package com.filos.domain.generators;
+package com.filos.users.utils.generators;
 
-import com.filos.domain.entities.User;
+import com.filos.users.repository.model.User;
 import com.github.javafaker.Faker;
 
 import java.util.List;
@@ -11,14 +11,15 @@ import java.util.stream.LongStream;
 import static com.google.common.base.Preconditions.checkArgument;
 
 public class UsersGenerator {
-    private final Faker faker;
+
+    protected final Faker faker;
 
     public UsersGenerator() {
         faker = Faker.instance();
     }
 
     public List<User> generateUsers(int noOfUsers) {
-        checkArgument(noOfUsers>=0);
+        checkArgument(noOfUsers >= 0);
         return LongStream.range(0, noOfUsers)
                 .mapToObj(i -> createUser())
                 .collect(Collectors.toList());
@@ -35,4 +36,5 @@ public class UsersGenerator {
                 .lastName(faker.name().lastName())
                 .build();
     }
+
 }
