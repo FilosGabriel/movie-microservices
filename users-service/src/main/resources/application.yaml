@@ -1,5 +1,12 @@
-mongodee:
-  changes:
-  url:
+mongock:
+  change-logs-scan-package:
+    - com.filos.users.repository.migrations
 
-spring.autoconfigure.exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+spring:
+  data:
+    mongodb:
+      database: users
+      host: localhost
+      port: 27017
+      auto-index-creation: true
+

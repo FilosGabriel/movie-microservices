@@ -1,5 +1,6 @@
 package com.filos.users.config;
 
+import com.filos.users.utils.generators.UsersGenerator;
 import com.google.zxing.qrcode.QRCodeWriter;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -16,5 +17,11 @@ public class ServiceConfig {
     public ModelMapper init() {
         return new ModelMapper();
     }
+
+    @Bean
+    public UsersGenerator createGenerator() {
+        return new UsersGenerator();
+    }
+
 
 }

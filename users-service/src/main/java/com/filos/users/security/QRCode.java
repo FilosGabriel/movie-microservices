@@ -18,6 +18,6 @@ public class QRCode {
     }
 
     public static QRCode of(String content) {
-        return of(content, 200, 200);
+        return of(content, 1200, 1200);
     }
 }
