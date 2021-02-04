@@ -1,7 +1,5 @@
 package com.filos.users.services;
 
-import com.filos.domain.dto.UserDto;
-import com.filos.domain.dto.UserQRCodeDto;
 import com.filos.users.repository.model.User;
 import com.filos.users.repository.composite.UserRepository;
 import lombok.RequiredArgsConstructor;

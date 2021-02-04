@@ -52,12 +52,26 @@ services:
     env_file:
       - ./.configs/mongo.env
 
-#  user-service:
-#    build:
-#      context: ./users-service
-#      dockerfile: ./Dockerfile
-#    networks:
-#      - backend
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: ./Dockerfile
+    networks:
+      - backend
+
+  discovery-service:
+    build:
+      context: ./discovery-service
+      dockerfile: ./Dockerfile
+    networks:
+      - backend
+
+  user-service:
+    build:
+      context: ./users-service
+      dockerfile: ./Dockerfile
+    networks:
+      - backend
 
 
 networks:

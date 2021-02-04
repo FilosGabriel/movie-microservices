@@ -10,7 +10,7 @@ import io.changock.migration.api.annotations.NonLockGuarded;
 public class PopulateDatabase {
 
     @ChangeSet(order = "001", id = "load 100 users", author = "Filos Gabriel")
-    public void load100Users(MongockTemplate mongockTemplate,  @NonLockGuarded UsersGenerator generator) {
+    public void load100Users(MongockTemplate mongockTemplate, @NonLockGuarded UsersGenerator generator) {
         mongockTemplate.insertAll(generator.generateUsers(100));
     }
 

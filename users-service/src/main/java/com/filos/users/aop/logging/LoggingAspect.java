@@ -13,20 +13,20 @@ import org.springframework.util.StopWatch;
 @Component
 public class LoggingAspect {
     public static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+
     /**
      * This method uses Around advice which ensures that an advice can run before
      * and after the method execution, to and log the execution time of the method
      * This advice will be be applied to all the method which are annotate with the
      * annotation @LogExecutionTime @see com.example.springaop.logging.LogExecutionTime
-     *
+     * <p>
      * Any mehtod where execution times need to be measure and log, anotate the method with @LogExecutionTime
      * example
-     * @LogExecutionTime
-     * public void m1();
      *
      * @param proceedingJoinPoint
      * @return
      * @throws Throwable
+     * @LogExecutionTime public void m1();
      */
     @Around("@annotation(com.filos.users.aop.logging.LogExecutionTime)")
     public Object methodTimeLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {

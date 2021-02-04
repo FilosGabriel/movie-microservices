@@ -1,7 +1,7 @@
 package com.filos.users.web.rest;
 
-import com.filos.domain.dto.UserDto;
-import com.filos.domain.dto.UserQRCodeDto;
+import com.filos.domain.dto.*;
+import com.filos.model.dto.UserQRCodeDto;
 import com.filos.users.security.QRCodeGenerator;
 import com.filos.users.services.UserService;
 import lombok.RequiredArgsConstructor;
