@@ -1,27 +1,49 @@
 package com.filos.users.config;
 
-import com.filos.users.utils.generators.UsersGenerator;
+import com.filos.domain.api.UniqueValidationCondition;
+import com.filos.users.repository.mongo.UserRepositoryMongo;
+import com.filos.users.services.api.ExternalNotifier;
 import com.google.zxing.qrcode.QRCodeWriter;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.BeanDefinitionCustomizer;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootConfiguration
-public class ServiceConfig implements ApplicationContextInitializer<GenericApplicationContext> {
-    private final static BeanDefinitionCustomizer SINGLETON = beanDefinition -> beanDefinition.setScope(BeanDefinition.SCOPE_SINGLETON);
+@Configuration
+public class ServiceConfig {
 
-    public void initServices(GenericApplicationContext context) {
-        context.registerBean("qrCodeWriter", QRCodeWriter.class, QRCodeWriter::new, SINGLETON);
-        context.registerBean(ModelMapper.class, SINGLETON);
-        context.registerBean(UsersGenerator.class, SINGLETON);
+    @Bean
+    public QRCodeWriter initQr() {
+        return new QRCodeWriter();
     }
 
+    @Bean
+    public ModelMapper initMapper() {
+        return new ModelMapper();
+    }
 
-    @Override
-    public void initialize(GenericApplicationContext context) {
-        initServices(context);
+    @Bean(name = "sha")
+    public DigestUtils createSha() {
+        return new DigestUtils("SHA3-256");
+    }
+
+    @Bean
+    public UniqueValidationCondition createValidator(UserRepositoryMongo repositoryMongo) {
+        return (email, username) -> repositoryMongo.findByUsernameOrEmail(username, email).isPresent();
+    }
+
+    @Bean
+    public ExternalNotifier create() {
+        return new ExternalNotifier() {
+            @Override
+            public void deleteUser(String id) {
+                System.out.println("delete");
+            }
+
+            @Override
+            public void createUser(String id) {
+                System.out.println("create");
+            }
+        };
     }
 }

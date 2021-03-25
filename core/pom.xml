@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>core</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tentants</module>
+        <module>simulators</module>
+        <module>autentification-autherization</module>
+    </modules>
 
     <dependencies>
         <dependency>

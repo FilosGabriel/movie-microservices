@@ -1,21 +1,21 @@
 package com.filos.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.filos.domain.constraints.UniqueUser;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.time.Instant;
 import java.time.LocalDate;
 
 @Data
+@UniqueUser
 public class UserDto {
 
-    @Min(value = 5, message = "Username need to have at least 5 characters")
-    @Max(value = 30, message = "Username need to have at most 30 characters")
+    @Length(min = 5,max = 30, message = "Username need to have at least 5 characters")
     @NotBlank(message = "Username need to not be blank")
     private String username;
 
@@ -31,7 +31,8 @@ public class UserDto {
     @NotBlank(message = "You need to have a last name")
     private String lastName;
 
-    private Instant dateOfBirth;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "UTC")
+    private LocalDate dateOfBirth;
 
     @JsonIgnore
     private String otp;

@@ -1,77 +1,80 @@
 version: "3.8"
 
 
+
 services:
 
-  redis-database:
-    image: library/redis:alpine
-    container_name: cache
-    env_file:
-      - ./.configs/redis.env
-    command: redis-server --bind ${BIND} --requirepass $PASSWORD --maxmemory $MEMORY --maxmemory-policy $POLICY --appendonly $APPEND
-    ports:
-      - "6379"
-    networks:
-      - backend
-
-
-
-  postgres-database:
-    image: library/postgres:13-alpine
-    container_name: "general-database"
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data/
-    networks:
-      - backend
-    env_file:
-      - ./.configs/postgres.env
-
-  solr-database:
-    image: library/solr:8.5.2-slim
-    volumes:
-      - solr-data:/var/solr
-    ports:
-      - "8983:8983"
-    command:
-      - solr-precreate
-      - gettingstarted
-    networks:
-      - backend
-    env_file:
-      - ./.configs/solr.env
+#  redis-database:
+#    image: library/redis:alpine
+#    container_name: cache
+#    env_file:
+#      - ./.configs/redis.env
+#    command: redis-server --bind ${BIND} --requirepass $PASSWORD --maxmemory $MEMORY --maxmemory-policy $POLICY --appendonly $APPEND
+#    ports:
+#      - "6379"
+#    networks:
+#      - backend
+#
+#
+#
+#  postgres-database:
+#    image: library/postgres:13-alpine
+#    container_name: "general-database"
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres-data:/var/lib/postgresql/data/
+#    networks:
+#      - backend
+#    env_file:
+#      - ./.configs/postgres.env
+#
+#  solr-database:
+#    image: library/solr:8.5.2-slim
+#    volumes:
+#      - solr-data:/var/solr
+#    ports:
+#      - "8983:8983"
+#    command:
+#      - solr-precreate
+#      - gettingstarted
+#    networks:
+#      - backend
+#    env_file:
+#      - ./.configs/solr.env
 
   mongo-database:
     image: library/mongo:4.0
     container_name: "user-database"
     volumes:
       - mongo-data:/data/db
+    ports:
+      - "27017:27017"
     networks:
       - backend
     env_file:
-      - ./.configs/mongo.env
+      - config/mongo.env
 
-  gateway:
-    build:
-      context: ./gateway
-      dockerfile: ./Dockerfile
-    networks:
-      - backend
-
-  discovery-service:
-    build:
-      context: ./discovery-service
-      dockerfile: ./Dockerfile
-    networks:
-      - backend
-
-  user-service:
-    build:
-      context: ./users-service
-      dockerfile: ./Dockerfile
-    networks:
-      - backend
+#  gateway:
+#    build:
+#      context: ./gateway
+#      dockerfile: ./Dockerfile
+#    networks:
+#      - backend
+#
+#  discovery-service:
+#    build:
+#      context: ./discovery-service
+#      dockerfile: ./Dockerfile
+#    networks:
+#      - backend
+#
+#  user-service:
+#    build:
+#      context: ./users-service
+#      dockerfile: ./Dockerfile
+#    networks:
+#      - backend
 
 
 networks:

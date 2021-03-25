@@ -5,6 +5,8 @@ mongock:
 spring:
   data:
     mongodb:
+      username: useraccount
+      password: secretPasssword
       database: users
       host: localhost
       port: 27017

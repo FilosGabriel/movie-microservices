@@ -27,7 +27,7 @@ public class UsersGenerator {
 
     public User createUser() {
         return User.builder()
-                .id(UUID.randomUUID())
+                .id(UUID.randomUUID().toString())
                 .username(faker.name().username())
                 .dateOfBirth(faker.date().birthday().toInstant())
                 .email(faker.internet().emailAddress())

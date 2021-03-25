@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-import java.util.UUID;
 
 @Builder
 @Getter
@@ -17,7 +16,7 @@ import java.util.UUID;
 @Document
 public class User {
     @Id
-    private UUID id;
+    private String id;
     @Indexed
     private String username;
     @Indexed
@@ -26,8 +25,8 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String secret;
     private Instant dateOfBirth;
+    private SecurityStatus security;
 
     @Tolerate
     public User() {
