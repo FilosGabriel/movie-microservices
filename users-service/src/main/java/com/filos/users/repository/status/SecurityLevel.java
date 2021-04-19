@@ -1,6 +1,7 @@
 package com.filos.users.repository.status;
 
 public enum SecurityLevel {
-    FIRST_LEVEL,
-    TWO_FACTOR_AUTHENTICATION
+    BASIC_AUTH,
+    TWO_FACTOR_AUTHENTICATION_SMS,
+    TWO_FACTOR_AUTHENTICATION_QR_CODE,
 }

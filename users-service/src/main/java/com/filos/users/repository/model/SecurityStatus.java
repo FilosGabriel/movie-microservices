@@ -14,11 +14,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SecurityStatus {
     private SecurityLevel level;
     private StatusAccount statusAccount;
-    private String secretKey;
+    private DetailsSMS2FA detailsSMS2FA;
+    private DetailsTOTP2FA detailsTOTP2FA;
 
     public static SecurityStatus initialStatus() {
         return SecurityStatus.builder()
-                .level(SecurityLevel.FIRST_LEVEL)
+                .level(SecurityLevel.BASIC_AUTH)
                 .statusAccount(StatusAccount.CREATED)
                 .build();
     }

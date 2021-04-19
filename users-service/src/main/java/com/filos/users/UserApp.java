@@ -1,6 +1,7 @@
 package com.filos.users;
 
 import com.filos.domain.config.EnableGenerators;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;

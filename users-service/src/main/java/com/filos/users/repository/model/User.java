@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Tolerate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -25,6 +26,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private Instant dateOfBirth;
     private SecurityStatus security;
 

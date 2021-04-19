@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      repositories:
+        type: none
+
+statistics:
+  load:
+    movie: "C:/Users/gfilos/Downloads/movie-microservices/data/tmdb_5000_movies.csv"

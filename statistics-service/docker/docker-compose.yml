@@ -1,0 +1,13 @@
+version: "3.8"
+
+
+
+services:
+
+  redis-database:
+    image: library/redis:alpine
+    container_name: statistics
+    env_file:
+      - redis.env
+    ports:
+      - "6379:6379"

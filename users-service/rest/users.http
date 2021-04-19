@@ -2,10 +2,13 @@ POST http://localhost:8080/users/register
 Content-Type: application/json
 
 {
-  "username": "test username2",
+  "username": "test us333ername23",
   "password": "some secret password",
-  "email": "email2@email.com",
+  "email": "email2332@email.com",
   "firstName": "First",
   "lastName": "Last Name",
   "dateOfBirth": "2021-02-13"
 }
+
+###
+GET localhost:8080/users/exists?username=filo&email=email

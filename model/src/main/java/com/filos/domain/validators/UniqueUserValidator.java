@@ -15,7 +15,7 @@ public class UniqueUserValidator implements ConstraintValidator<UniqueUser, User
     @Override
     public boolean isValid(UserDto userDto, ConstraintValidatorContext constraintValidatorContext) {
         if (!validation.validateUserIfUnique(userDto.getEmail(), userDto.getUsername())) {
-            constraintValidatorContext.buildConstraintViolationWithTemplate("{User already exists}").addConstraintViolation();
+            constraintValidatorContext.buildConstraintViolationWithTemplate("{com.filos.uniqueUser}").addConstraintViolation();
             return false;
         }
         return true;

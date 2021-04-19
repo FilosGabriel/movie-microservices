@@ -2,37 +2,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>movie</artifactId>
-        <groupId>com.filos</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+    <groupId>com.filos</groupId>
+    <version>0.0.1-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>domain</artifactId>
     <packaging>jar</packaging>
     <properties>
         <java.faker>1.0.2</java.faker>
+        <spring-boot-starter-validation.version>2.4.3</spring-boot-starter-validation.version>
+        <lombok.version>1.18.18</lombok.version>
+        <modelmapper.version>2.3.0</modelmapper.version>
+        <jackson-annotations.version>2.12.0</jackson-annotations.version>
+        <nbvcxz.version>1.5.0</nbvcxz.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
-            <version>2.3.0</version>
+            <version>${modelmapper.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+            <version>${spring-boot-starter-validation.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>${java.faker}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-annotations.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>me.gosimple</groupId>
+            <artifactId>nbvcxz</artifactId>
+            <version>${nbvcxz.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -41,15 +54,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>13</source>
-                    <target>13</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.2.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
