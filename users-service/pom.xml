@@ -16,30 +16,46 @@
         <!--BUILD-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--PLUGINS-->
         <gmavenplus.plugin.version>1.12.1</gmavenplus.plugin.version>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+
         <!--TESTING-->
         <spock-bom.version>${spock-junit4.version}</spock-bom.version>
         <hamcrest-core.version>2.2</hamcrest-core.version>
-        <!--UTILS-->
+        <spock-core.version>2.0-M4-groovy-3.0</spock-core.version>
+        <spock-junit4.version>2.0-M4-groovy-3.0</spock-junit4.version>
+
+        <!--PREPROCESSOR-->
         <lombok.version>1.18.18</lombok.version>
-        <modelmapper.version>2.3.0</modelmapper.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+
         <manifold.version>2021.1.9</manifold.version>
         <domain.version>0.0.1-SNAPSHOT</domain.version>
-        <zxing.version>3.3.0</zxing.version>
         <objenesis.version>3.1</objenesis.version>
         <byte-buddy.version>1.10.10</byte-buddy.version>
-        <commons-codec.version>1.11</commons-codec.version>
+
         <!--SPRING-->
         <spring-boot-starter-validation.version>2.4.3</spring-boot-starter-validation.version>
         <spring-cloud.version>2020.0.0</spring-cloud.version>
 
+        <!--SECURITY-->
         <nbvcxz.version>1.5.0</nbvcxz.version>
+
         <groovy.version>2.5.14</groovy.version>
-        <spock-core.version>2.0-M4-groovy-3.0</spock-core.version>
-        <spock-junit4.version>2.0-M4-groovy-3.0</spock-junit4.version>
+
+
+        <!--UTILITY-->
         <commons-lang3.version>3.5</commons-lang3.version>
         <guava.version>30.1-jre</guava.version>
+        <modelmapper.version>2.3.0</modelmapper.version>
+        <commons-codec.version>1.11</commons-codec.version>
+
+        <!--QR_IMAGE-->
+        <zxing.version>3.3.0</zxing.version>
+
+
     </properties>
 
     <build>
@@ -56,6 +72,11 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>1.18.16</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -190,6 +211,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
         </dependency>
     </dependencies>
 

@@ -17,7 +17,10 @@ public class ImageService {
 
     public byte[] getImage(String fileId, SizeImage size) {
         Optional<byte[]> image = repository.getImage(fileId, size.toString());
-        var imageBytes = image.orElseGet(() -> imageClient.getImage(fileId));
+        if (image.isPresent()) {
+            return image.get();
+        }
+        var imageBytes = imageClient.getImage(fileId);
         repository.saveImage(fileId, SizeImage.ORIGINAL, imageBytes);
         var imageResized = imageProcessor.resize(imageBytes, size);
         repository.saveImage(fileId, size.toString(), imageResized);

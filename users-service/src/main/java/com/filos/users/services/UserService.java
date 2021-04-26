@@ -1,7 +1,5 @@
 package com.filos.users.services;
 
-import org.apache.commons.lang3.NotImplementedException;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.filos.domain.dto.UserDto;
@@ -10,20 +8,21 @@ import com.filos.requests.users.FindUser;
 import com.filos.users.repository.model.SecurityStatus;
 import com.filos.users.repository.model.User;
 import com.filos.users.repository.mongo.UserRepositoryMongo;
+import com.filos.users.utils.mapper.UserMapper;
 import com.filos.users.web.exceptions.UserNotFound;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
-    private final ModelMapper mapper;
+    private final UserMapper mapper;
     private final UserRepositoryMongo userRepository;
 
     public UserQRCodeDto createUser(UserDto userDtoRequest) {
-        User user = mapper.map(userDtoRequest, User.class);
+        User user = mapper.toUser(userDtoRequest);
         user.setSecurity(SecurityStatus.initialStatus());
         userRepository.save(user);
-        return mapper.map(userDtoRequest, UserQRCodeDto.class);
+        return mapper.toResponse(userDtoRequest);
     }
 
     public void checkExistenceOfUser(FindUser user) {

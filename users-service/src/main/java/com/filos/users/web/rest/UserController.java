@@ -34,13 +34,13 @@ public class UserController {
 
     @GetMapping("/exists")
     @ResponseStatus(HttpStatus.OK)
-    public void checkIfUserExists(FindUser user) {
+    public void checkIfUserExists(@Valid FindUser user) {
         userService.checkExistenceOfUser(user);
     }
 
     @PostMapping("/login")
     @ResponseStatus(OK)
     public String authenticateUser() {
-        return "";
+        return "ok";
     }
 }

@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Component
+@Component("imageConfiguration")
 @Data
-@ConfigurationProperties(prefix = "movieDb")
+@ConfigurationProperties(prefix = "movie-db")
 public class ImageConfiguration {
     private String key;
     private String sourcePath;
