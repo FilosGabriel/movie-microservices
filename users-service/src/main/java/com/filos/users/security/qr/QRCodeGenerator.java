@@ -1,17 +1,20 @@
-package com.filos.users.security;
+package com.filos.users.security.qr;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+
+import org.springframework.stereotype.Component;
+
+import com.filos.users.security.OneTimePassword;
+import com.filos.users.security.Token;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.Base64;
+import lombok.NonNull;
 
 @Component
 @AllArgsConstructor
@@ -25,7 +28,7 @@ public class QRCodeGenerator {
         return getBase64QRCode(code);
     }
 
-    private String getBase64QRCode(QRCode code) {
+    private String getBase64QRCode(@NonNull QRCode code) {
         BitMatrix bitMatrix = null;
         try {
             bitMatrix = writer.encode(
@@ -37,7 +40,7 @@ public class QRCodeGenerator {
             MatrixToImageWriter.writeToStream(bitMatrix, "PNG", stream);
             return Base64.getEncoder().encodeToString(stream.toByteArray());
         } catch (WriterException | IOException e) {
-//            log.("Fail to create QRCode", e);
+            //            log.("Fail to create QRCode", e);
             throw new RuntimeException();
         }
 

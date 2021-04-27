@@ -1,15 +1,13 @@
 package com.filos.users.repository.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Tolerate;
-
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.Instant;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.experimental.Tolerate;
 
 @Builder
 @Getter
@@ -18,17 +16,9 @@ import java.time.Instant;
 public class User {
     @Id
     private String id;
-    @Indexed
-    private String username;
-    @Indexed
-    private String email;
-    @Indexed
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private Instant dateOfBirth;
-    private SecurityStatus security;
+    private @NonNull ContactInformation contactInfo;
+    private @NonNull BasicInformation BasicInfo;
+    private @NonNull SecurityStatus security;
 
     @Tolerate
     public User() {

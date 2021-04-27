@@ -1,4 +1,4 @@
-package com.filos.users.services;
+package com.filos.users.services.security;
 
 import org.springframework.stereotype.Service;
 
@@ -17,19 +17,18 @@ public class SecurityService {
     private final UserValidationSecurity userValidationSecurity;
 
     public TwoResponse getStatusSMS2FA() {
-        User user = userRepository.findByEmail("email").orElseThrow(UserNotFound::new);
+        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
         return TwoResponse.with("SMS", user.getSecurity().getLevel().name());
     }
 
     public void enableSMS2FA() {
-        User user = userRepository.findByEmail("email").orElseThrow(UserNotFound::new);
+        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
         userValidationSecurity.checkIfHasAllNecessaryDataForSMS2FA(user);
         user.getSecurity().setLevel(SecurityLevel.TWO_FACTOR_AUTHENTICATION_SMS);
         userRepository.save(user);
     }
 
     public void enableTOTP2FA() {
-        User user = userRepository.findByEmail("email").orElseThrow(UserNotFound::new);
-
+        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
     }
 }
