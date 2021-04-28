@@ -19,4 +19,6 @@ public class ContactInformation {
     private String email;
     @Indexed
     private String phoneNumber;
+    private boolean emailConfirm;
+    private boolean phoneConfirm;
 }

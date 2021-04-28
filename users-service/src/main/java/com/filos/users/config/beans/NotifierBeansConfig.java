@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.filos.users.config.AppProfiles;
-import com.filos.users.services.api.ExternalNotifier;
+import com.filos.users.services.notifiers.api.ExternalNotifier;
 import lombok.NonNull;
 
 @Configuration

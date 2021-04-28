@@ -1,4 +1,4 @@
-package com.filos.users.web.dto;
+package com.filos.users.web.responses;
 
 import lombok.RequiredArgsConstructor;
 

@@ -9,6 +9,7 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import com.filos.domain.api.UniqueValidationCondition;
 import com.filos.users.repository.mongo.UserRepositoryMongo;
+import com.filos.users.utils.generators.SecretGenerator;
 import me.gosimple.nbvcxz.Nbvcxz;
 import me.gosimple.nbvcxz.resources.ConfigurationBuilder;
 
@@ -31,5 +32,10 @@ public class SecurityBeansConfig {
         return new Nbvcxz(new ConfigurationBuilder()
                                   .setLocale(Locale.ENGLISH)
                                   .createConfiguration());
+    }
+
+    @Bean
+    public SecretGenerator initSecretGenerator() {
+        return new SecretGenerator();
     }
 }

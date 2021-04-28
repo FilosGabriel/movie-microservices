@@ -1,4 +1,4 @@
-package com.filos.users.services.api;
+package com.filos.users.services.notifiers.api;
 
 import org.springframework.scheduling.annotation.Async;
 

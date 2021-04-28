@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventLis
 import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
 import org.springframework.stereotype.Component;
 
+import com.filos.users.config.constants.Services;
 import com.filos.users.repository.model.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Order(1)
 public class HideSecretsOnSaveListener extends AbstractMongoEventListener<User> {
-    @Qualifier("sha")
+    @Qualifier(Services.Encryption.SHA)
     private final DigestUtils digestUtils;
     private final static String HIDE_PASSWORD = "Hiding password for user {}.";
 

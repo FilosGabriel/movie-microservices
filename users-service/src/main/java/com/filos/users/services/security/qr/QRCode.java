@@ -1,4 +1,4 @@
-package com.filos.users.security.qr;
+package com.filos.users.services.security.qr;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;

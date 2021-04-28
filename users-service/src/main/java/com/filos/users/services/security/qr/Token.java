@@ -1,4 +1,4 @@
-package com.filos.users.security;
+package com.filos.users.services.security.qr;
 
 import java.security.SecureRandom;
 import javax.validation.constraints.Min;

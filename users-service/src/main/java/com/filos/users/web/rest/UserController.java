@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.filos.domain.dto.UserDto;
 import com.filos.domain.dto.UserQRCodeDto;
 import com.filos.requests.users.FindUser;
-import com.filos.users.security.qr.QRCodeGenerator;
+import com.filos.users.services.security.qr.QRCodeGenerator;
 import com.filos.users.services.user.UserService;
 import lombok.RequiredArgsConstructor;
 

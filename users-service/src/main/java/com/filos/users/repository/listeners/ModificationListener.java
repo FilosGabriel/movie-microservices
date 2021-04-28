@@ -1,7 +1,7 @@
 package com.filos.users.repository.listeners;
 
 import com.filos.users.repository.model.User;
-import com.filos.users.services.api.ExternalNotifier;
+import com.filos.users.services.notifiers.api.ExternalNotifier;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;

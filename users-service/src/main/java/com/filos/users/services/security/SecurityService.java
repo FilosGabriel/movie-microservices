@@ -1,34 +1,49 @@
 package com.filos.users.services.security;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import com.filos.users.repository.model.User;
 import com.filos.users.repository.mongo.UserRepositoryMongo;
 import com.filos.users.repository.status.SecurityLevel;
+import com.filos.users.services.security.api.MethodSecurityService;
+import com.filos.users.services.security.exceptions.InvalidLoginRequest;
 import com.filos.users.services.utils.UserValidationSecurity;
-import com.filos.users.web.dto.TwoResponse;
+import com.filos.users.utils.extensions.UserExtension;
+import com.filos.users.utils.generators.SecretGenerator;
+import com.filos.users.web.responses.TwoResponse;
+import com.filos.users.web.requests.UserRequest;
 import com.filos.users.web.exceptions.UserNotFound;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.ExtensionMethod;
 
 @Service
 @RequiredArgsConstructor
+@ExtensionMethod(UserExtension.class)
 public class SecurityService {
+
+    private final Map<String, MethodSecurityService> methodSecurityService;
+    private final SecretGenerator secretGenerator;
     private final UserRepositoryMongo userRepository;
     private final UserValidationSecurity userValidationSecurity;
 
-    public TwoResponse getStatusSMS2FA() {
-        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
-        return TwoResponse.with("SMS", user.getSecurity().getLevel().name());
-    }
-
-    public void enableSMS2FA() {
-        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
-        userValidationSecurity.checkIfHasAllNecessaryDataForSMS2FA(user);
-        user.getSecurity().setLevel(SecurityLevel.TWO_FACTOR_AUTHENTICATION_SMS);
+    public TwoResponse activateMethod(@NonNull UserRequest request) {
+        User user = userRepository.findByContactInfo_Email(request.getEmail())
+                                  .orElseThrow(UserNotFound::new);
+        if (!methodSecurityService.containsKey(request.getMethod())) {
+            throw InvalidLoginRequest.method();
+        }
+        methodSecurityService.get(request.getMethod()).activate(user, request);
         userRepository.save(user);
+        return TwoResponse.with(request.getMethod(), user.getSecurity().getLevel().name());
     }
 
-    public void enableTOTP2FA() {
-        User user = userRepository.findByContactInfo_Email("email").orElseThrow(UserNotFound::new);
+    public @NonNull SecurityLevel getStatusSMS2FA(UserRequest request) {
+        User user = userRepository.findByContactInfo_Email(request.getEmail())
+                                  .orElseThrow(UserNotFound::new);
+        return user.getSecurity().getLevel();
     }
+
 }
