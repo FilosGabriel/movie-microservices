@@ -42,7 +42,7 @@
 
         <!--SECURITY-->
         <nbvcxz.version>1.5.0</nbvcxz.version>
-
+        <java-jwt.version>3.4.0</java-jwt.version>
         <groovy.version>2.5.14</groovy.version>
 
 
@@ -216,6 +216,15 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

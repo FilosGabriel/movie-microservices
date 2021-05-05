@@ -6,4 +6,6 @@ public interface EmailSender {
     void sendEmailDeleteAccount();
 
     void sendEmailChangePassword();
+
+    void sendEmailResetPassword(String userId, String token);
 }

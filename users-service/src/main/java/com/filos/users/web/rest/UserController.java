@@ -25,6 +25,8 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
     private final UserService userService;
     private final QRCodeGenerator generator;
+    public static int E = 1;
+    public static int E2 = 2;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -37,6 +39,7 @@ public class UserController {
     public void checkIfUserExists(@Valid FindUser user) {
         userService.checkExistenceOfUser(user);
     }
+
 
     @PostMapping("/login")
     @ResponseStatus(OK)

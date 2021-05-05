@@ -17,6 +17,8 @@ public interface UserRepositoryMongo extends MongoRepository<User, UUID> {
 
     Optional<User> findByBasicInfo_UsernameOrContactInfo_Email(String username, String email);
 
+    Optional<User> findByContactInfo_PhoneNumberOrContactInfo_Email(String phoneContact, String email);
+
     Optional<User> findByContactInfo_Email(String email);
 
     Optional<User> findByBasicInfo_Username(String username);

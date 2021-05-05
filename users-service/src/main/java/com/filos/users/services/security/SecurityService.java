@@ -9,12 +9,10 @@ import com.filos.users.repository.mongo.UserRepositoryMongo;
 import com.filos.users.repository.status.SecurityLevel;
 import com.filos.users.services.security.api.MethodSecurityService;
 import com.filos.users.services.security.exceptions.InvalidLoginRequest;
-import com.filos.users.services.utils.UserValidationSecurity;
 import com.filos.users.utils.extensions.UserExtension;
-import com.filos.users.utils.generators.SecretGenerator;
-import com.filos.users.web.responses.TwoResponse;
-import com.filos.users.web.requests.UserRequest;
 import com.filos.users.web.exceptions.UserNotFound;
+import com.filos.users.web.requests.UserRequest;
+import com.filos.users.web.responses.TwoResponse;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.ExtensionMethod;
@@ -25,12 +23,10 @@ import lombok.experimental.ExtensionMethod;
 public class SecurityService {
 
     private final Map<String, MethodSecurityService> methodSecurityService;
-    private final SecretGenerator secretGenerator;
     private final UserRepositoryMongo userRepository;
-    private final UserValidationSecurity userValidationSecurity;
 
     public TwoResponse activateMethod(@NonNull UserRequest request) {
-        User user = userRepository.findByContactInfo_Email(request.getEmail())
+        User user = userRepository.findByContactInfo_Email(request.getMethod())
                                   .orElseThrow(UserNotFound::new);
         if (!methodSecurityService.containsKey(request.getMethod())) {
             throw InvalidLoginRequest.method();

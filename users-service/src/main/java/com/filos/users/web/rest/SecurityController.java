@@ -15,11 +15,11 @@ public class SecurityController {
 
     @PostMapping("/2fa/sms")
     public void activateSMS2FA() {
-        service.enableSMS2FA(null);
+        service.activateMethod(null);
     }
 
     @PostMapping("/2fa/totp")
     public void activateTOTP2FA() {
-        service.enableTOTP2FA();
+        service.activateMethod(null);
     }
 }
