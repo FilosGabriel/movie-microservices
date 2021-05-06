@@ -13,6 +13,8 @@ import com.filos.users.repository.model.DetailsSMS2FA;
 import com.filos.users.repository.model.DetailsTOTP2FA;
 import com.filos.users.repository.model.SecurityStatus;
 import com.filos.users.repository.model.User;
+import com.filos.users.repository.status.SecurityLevel;
+import com.filos.users.repository.status.StatusAccount;
 import com.github.javafaker.Faker;
 
 public class UsersGenerator {
@@ -42,6 +44,8 @@ public class UsersGenerator {
     private SecurityStatus createSecurityInformation() {
         return SecurityStatus.builder()
                              .password(faker.internet().password())
+                             .level(SecurityLevel.BASIC_AUTH)
+                             .statusAccount(StatusAccount.CREATED)
                              .detailsSMS2FA(DetailsSMS2FA.INITIAL)
                              .detailsTOTP2FA(DetailsTOTP2FA.INITIAL)
                              .build();

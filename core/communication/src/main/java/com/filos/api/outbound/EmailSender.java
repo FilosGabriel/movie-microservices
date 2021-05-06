@@ -1,4 +1,4 @@
-package api.outbound;
+package com.filos.api.outbound;
 
 public interface EmailSender {
     void sendEmailCreatingAccount();

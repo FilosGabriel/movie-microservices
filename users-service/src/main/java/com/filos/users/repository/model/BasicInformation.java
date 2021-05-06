@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -15,8 +16,8 @@ import lombok.Setter;
 @Document
 public class BasicInformation {
     @Indexed
-    private String username;
-    private String firstName;
-    private String lastName;
-    private Instant dateOfBirth;
+    private @NonNull String username;
+    private @NonNull String firstName;
+    private @NonNull String lastName;
+    private @NonNull Instant dateOfBirth;
 }

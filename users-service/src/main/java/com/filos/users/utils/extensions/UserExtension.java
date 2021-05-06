@@ -22,7 +22,7 @@ public class UserExtension {
 
         public void ifEqualsThrow(Supplier<? extends RuntimeException> exceptionSupplier) {
             if (shouldThrow) {
-                exceptionSupplier.get();
+                throw exceptionSupplier.get();
             }
         }
 

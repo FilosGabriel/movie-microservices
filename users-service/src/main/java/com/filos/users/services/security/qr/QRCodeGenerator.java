@@ -6,7 +6,6 @@ import java.util.Base64;
 
 import org.springframework.stereotype.Component;
 
-import com.filos.users.services.security.exceptions.FailToCreateQrCodeException;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -40,7 +39,7 @@ public class QRCodeGenerator {
             MatrixToImageWriter.writeToStream(bitMatrix, PNG_FORMAT, stream);
             return Base64.getEncoder().encodeToString(stream.toByteArray());
         } catch (WriterException | IOException e) {
-            throw new FailToCreateQrCodeException();
+            throw new RuntimeException();
         }
 
     }
