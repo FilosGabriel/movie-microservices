@@ -12,6 +12,7 @@
         <module>tentants</module>
         <module>simulators</module>
         <module>autentification-autherization</module>
+        <module>data-loader</module>
     </modules>
 
     <dependencies>
