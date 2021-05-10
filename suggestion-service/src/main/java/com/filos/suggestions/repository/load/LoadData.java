@@ -24,6 +24,7 @@ public class LoadData {
         operations.indexOps(SearchData.class).refresh();
         List<SearchData> searchData = movies.stream().map(this::mapper)
                                             .collect(Collectors.toList());
+        operations.save(searchData);
 
     }
 

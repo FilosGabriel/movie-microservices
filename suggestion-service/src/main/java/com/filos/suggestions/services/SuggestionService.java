@@ -1,23 +1,25 @@
 package com.filos.suggestions.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.filos.suggestions.repository.elastic.SearchMovieRepository;
-import com.filos.suggestions.repository.model.SearchData;
+import com.filos.suggestions.repository.elastic.SearchRepository;
+import com.filos.suggestions.utils.mapper.SearchMapper;
+import com.filos.suggestions.web.responses.BasicSearchResponse;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class SuggestionService {
-    private final SearchMovieRepository repository;
+    private final SearchMapper searchMapper;
+    private final SearchRepository searchRepository;
 
-    public List<SearchData> searchSuggestionFor(String request) {
-        Page<SearchData> result = repository.findByTitle(request, PageRequest.of(0, 10));
-        return result.toList().;
+    public List<BasicSearchResponse> searchSuggestionFor(String request) {
+        return searchRepository.findSuggestions(request).stream()
+                               .map(searchMapper::mapToResponse)
+                               .collect(Collectors.toList());
     }
 
 }

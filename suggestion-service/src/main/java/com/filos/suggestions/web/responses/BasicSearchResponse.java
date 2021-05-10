@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class BasicSearchResponse {
-    private String title;
-    private String id;
+    protected String title;
+    protected long id;
 }

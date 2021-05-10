@@ -9,5 +9,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @ConfigurationProperties(prefix = "connections")
 public class ConnectionConfiguration {
-    public final String elasticsearchConnection;
+    public final String elasticsearchConnection = "localhost:9200";
 }

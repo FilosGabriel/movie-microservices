@@ -10,5 +10,7 @@ import com.filos.suggestions.repository.model.SearchData;
 @Repository
 public interface SearchMovieRepository extends ElasticsearchRepository<SearchData, String> {
 
-    Page<SearchData> findByTitle(String title, PageRequest pageRequest);
+    Page<SearchData> findByTitleContaining(String title, PageRequest pageRequest);
+
+    void deleteByExternalId(long id);
 }
