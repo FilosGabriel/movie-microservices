@@ -42,7 +42,7 @@
 
         <!--SECURITY-->
         <nbvcxz.version>1.5.0</nbvcxz.version>
-
+        <java-jwt.version>3.4.0</java-jwt.version>
         <groovy.version>2.5.14</groovy.version>
 
 
@@ -56,6 +56,12 @@
         <zxing.version>3.3.0</zxing.version>
 
 
+        <assertj-core.version>3.19.0</assertj-core.version>
+        <junit-jupiter-engine.version>5.7.1</junit-jupiter-engine.version>
+        <mockito-core.version>3.9.0</mockito-core.version>
+        <junit-platform-surefire-provider.version>1.0.1</junit-platform-surefire-provider.version>
+        <mockito-junit-jupiter.version>3.9.0</mockito-junit-jupiter.version>
+        <junit-platform-runner.version>1.7.1</junit-platform-runner.version>
     </properties>
 
     <build>
@@ -97,6 +103,14 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>${junit-platform-surefire-provider.version}</version>
+                        <scope>test</scope>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <useFile>false</useFile>
                     <includes>
@@ -180,6 +194,11 @@
             <version>${byte-buddy.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+        </dependency>
         <dependency> <!-- enables mocking of classes without default constructor (together with ByteBuddy or CGLIB) -->
             <groupId>org.objenesis</groupId>
             <artifactId>objenesis</artifactId>
@@ -216,6 +235,46 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>communication</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito-junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit-platform-runner.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

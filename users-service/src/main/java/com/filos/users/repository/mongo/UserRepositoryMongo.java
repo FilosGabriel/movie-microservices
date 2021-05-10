@@ -1,19 +1,26 @@
 package com.filos.users.repository.mongo;
 
-import com.filos.users.repository.model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.filos.users.repository.model.User;
 
 @Repository
 public interface UserRepositoryMongo extends MongoRepository<User, UUID> {
 
-    Optional<User> findByUsernameOrEmail(String userName,String email);
+    @Query("{'$or':[{'basicInfo':{ 'username':?0}},{'contactInfo': ?1}]}")
+    Optional<User> findByCustom(String username, String email);
 
-    Optional<User> findByEmail(String email);
+    Optional<User> findByBasicInfo_UsernameOrContactInfo_Email(String username, String email);
 
-    Optional<User> findByUsername(String username);
+    Optional<User> findByContactInfo_PhoneNumberOrContactInfo_Email(String phoneContact, String email);
+
+    Optional<User> findByContactInfo_Email(String email);
+
+    Optional<User> findByBasicInfo_Username(String username);
 
 }
