@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.filos.suggestions.services.SuggestionService;
-import com.filos.suggestions.web.responses.BasicSearchResponseWithScore;
+import com.filos.suggestions.web.responses.BasicSearchResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -20,7 +20,7 @@ public class SearchController {
     private final SuggestionService suggestionService;
 
     @GetMapping("/suggestion")
-    public List<BasicSearchResponseWithScore> searchSuggestion(@RequestParam final String text) {
+    public List<BasicSearchResponse> searchSuggestion(@RequestParam final String text) {
         return suggestionService.searchSuggestionFor(text);
     }
 

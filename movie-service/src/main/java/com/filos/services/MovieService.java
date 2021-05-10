@@ -1,10 +1,11 @@
 package com.filos.services;
 
-import com.filos.dtos.MovieDto;
-import lombok.SneakyThrows;
+import javax.naming.OperationNotSupportedException;
+
 import org.springframework.stereotype.Service;
 
-import javax.naming.OperationNotSupportedException;
+import com.filos.web.responses.MovieDto;
+import lombok.SneakyThrows;
 
 @Service
 public class MovieService{
