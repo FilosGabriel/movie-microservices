@@ -6,13 +6,18 @@
     <version>0.0.1-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>core</artifactId>
+    <artifactId>internal</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>autentification-autherization</module>
-        <module>communication</module>
-        <module>data-loader</module>
-        <module>tentants</module>
+        <module>email-service</module>
+        <module>image-service</module>
+        <module>model</module>
+        <module>movie-service</module>
+        <module>product</module>
+        <module>recommendation-service</module>
+        <module>statistics-service</module>
+        <module>suggestion-service</module>
+        <module>users-service</module>
     </modules>
 
     <dependencies>

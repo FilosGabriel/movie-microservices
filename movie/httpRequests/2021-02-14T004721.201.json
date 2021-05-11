@@ -1,9 +1,0 @@
-{
-  "username": "test username",
-  "email": "email@email.com",
-  "firstName": "First",
-  "lastName": "Last Name",
-  "dateOfBirth": "2021-02-13",
-  "qrCode": null,
-  "secretKey": null
-}

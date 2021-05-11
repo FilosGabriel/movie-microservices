@@ -1,7 +1,0 @@
-{
-  "timestamp": "2021-02-14T11:08:26.319+00:00",
-  "status": 500,
-  "error": "Internal Server Error",
-  "message": "",
-  "path": "/users/register"
-}

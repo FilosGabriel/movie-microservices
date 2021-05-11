@@ -6,13 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>core</artifactId>
+    <artifactId>internal</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>autentification-autherization</module>
-        <module>communication</module>
-        <module>data-loader</module>
-        <module>tentants</module>
+        <module>config-service</module>
+        <module>discovery-service</module>
+        <module>gateway</module>
     </modules>
 
     <dependencies>
