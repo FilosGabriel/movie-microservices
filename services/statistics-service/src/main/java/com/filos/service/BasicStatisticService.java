@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 //@Service
 @RequiredArgsConstructor
 public class BasicStatisticService {
+    private final ReactiveRedisOperations<Fields.Field, Long> operationsInteger;
+
 
     public void increment(Fields.Field field) {
         operationsInteger.opsForValue().increment(field)

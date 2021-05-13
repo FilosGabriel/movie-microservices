@@ -2,7 +2,6 @@ package com.filos.users.services.user;
 
 import org.springframework.stereotype.Service;
 
-import com.filos.api.outbound.EmailSender;
 import com.filos.users.repository.model.ResetData;
 import com.filos.users.repository.model.User;
 import com.filos.users.repository.mongo.UserRepositoryMongo;
@@ -10,6 +9,7 @@ import com.filos.users.services.security.password.ResetPasswordService;
 import com.filos.users.web.exceptions.UserNotFound;
 import com.filos.users.web.requests.ChangePasswordRequest;
 import com.filos.users.web.requests.UserResetRequest;
+import api.outbound.EmailSender;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 

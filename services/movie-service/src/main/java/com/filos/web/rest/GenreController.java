@@ -31,7 +31,7 @@ public class GenreController{
     @ResponseStatus(HttpStatus.OK)
     public List<String> updateGenresForMovie(@PathVariable final long id,
                                              @Valid @RequestBody List<String> genres) {
-        return genresService.updateGenresForMovie(id,genres);
+        return genresService.updateGenresForMovie(id);
     }
 
 }
