@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.filos.repository.model.Movie;
+import com.filos.web.responses.MovieDto;
 
 @Mapper
 public interface MovieMapper {
@@ -20,4 +21,7 @@ public interface MovieMapper {
     @Mapping(source = "releaseDate", target = "statistic.releaseDate")
     @Mapping(source = "revenue", target = "statistic.revenue")
     Movie mapFromData(com.filos.data.Movie movie);
+
+    MovieDto mapFromData(com.filos.repository.model.Movie movie);
+    Movie mapFromData(com.filos.web.responses.MovieDto movie);
 }

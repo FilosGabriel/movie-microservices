@@ -52,7 +52,6 @@ class ImageServiceTest {
 
         // When
         byte[] imageReturnedByService = imageService.getImage(fileName, size);
-        Imagg
         // Then
     }
 }
