@@ -1,0 +1,27 @@
+GET localhost:8080/movies/1122222
+
+###
+
+POST localhost:8080/movies
+Content-Type: application/json
+
+{
+  "imdbId": "122",
+  "basic": {
+    "title": "test title",
+    "duration": 122,
+    "year": 1999,
+    "description": "some description"
+  },
+  "casting": {
+  },
+  "details": {
+  },
+  "statistics": {
+  }
+}
+
+###
+GET localhost:8080/movies/search?text=ma
+Content-Type: application/json
+Accept: application/json

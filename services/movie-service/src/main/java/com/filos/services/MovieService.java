@@ -6,6 +6,7 @@ import com.filos.repository.model.Movie;
 import com.filos.repository.mongo.MovieRepository;
 import com.filos.utils.mapper.MovieMapper;
 import com.filos.web.exceptions.MovieNotFound;
+import com.filos.web.requests.SaveMovieRequest;
 import com.filos.web.responses.MovieDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -24,7 +25,7 @@ public class MovieService {
     }
 
     @SneakyThrows
-    public void create(MovieDto movie) {
+    public void create(SaveMovieRequest movie) {
         Movie mappedMovie = mapper.mapFromData(movie);
         movieRepository.save(mappedMovie);
     }

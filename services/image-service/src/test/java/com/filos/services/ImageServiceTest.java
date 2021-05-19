@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,6 +20,7 @@ import com.filos.services.dto.SizeImage;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("When image service ")
+@Disabled
 class ImageServiceTest {
 
     private final SizeImage size = new SizeImage(10, 10);
@@ -37,6 +39,7 @@ class ImageServiceTest {
     @BeforeEach
     public void init() throws IOException {
         imageService = new ImageService(imageRepository, imageProcessor, webClient);
+
         ClassLoader classLoader = getClass().getClassLoader();
         Path path = new File(classLoader.getResource(fileName).getFile()).toPath();
         mockImage = Files.readAllBytes(path);

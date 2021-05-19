@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import com.filos.data.Movie;
+import com.google.gson.Gson;
 import com.univocity.parsers.common.processor.BeanListProcessor;
 import com.univocity.parsers.csv.CsvParser;
 import com.univocity.parsers.csv.CsvParserSettings;
@@ -18,6 +19,7 @@ public final class MovieReader {
     private List<Movie> moviesCache;
 
     public MovieReader(String filePath) {
+        new Gson();
         this.filePath = filePath;
     }
 
@@ -30,10 +32,10 @@ public final class MovieReader {
         if (moviesCache != null) {
             return moviesCache;
         }
+        CsvParserSettings settings = new CsvParserSettings();
         FileInputStream fileInputStream = new FileInputStream(filePath);
         @Cleanup Reader inputReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
         BeanListProcessor<Movie> rowProcessor = new BeanListProcessor<>(Movie.class);
-        CsvParserSettings settings = new CsvParserSettings();
         settings.setHeaderExtractionEnabled(true);
         settings.setQuoteDetectionEnabled(true);
         settings.setColumnReorderingEnabled(false);

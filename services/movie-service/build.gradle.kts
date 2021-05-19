@@ -5,49 +5,61 @@ plugins {
     id("io.freefair.lombok") version "6.0.0-m2"
     id("org.springframework.boot") version "2.4.5"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
-
 }
 
 group = "com.filos"
 version = "1.0-SNAPSHOT"
-
-idea{
-    module {
-        sourceDirs.add(file("generated/"))
-        generatedSourceDirs.add(file("generated/"))
-    }
-}
+val vMapper: String by project.extra
+val vCommonsLang: String by project.extra
+val vJupiterEngine: String by project.extra
+val vDSLMongo: String by project.extra
+val vQueryDsl: String by project.extra
+val vJavax: String by project.extra
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+//  other projects
     implementation(project(":utils:data-loader"))
-    implementation("org.mapstruct:mapstruct:1.4.2.Final")
-    implementation("org.apache.commons:commons-lang3:3.12.0")
+
+//  Media
+    implementation("black.door:hate:v1r4t5")
+
+//  Utils
+    implementation("org.mapstruct:mapstruct:${vMapper}")
+    implementation("org.apache.commons:commons-lang3:${vCommonsLang}")
+
+//  Spring boot
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+//    TESTING junit
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-    annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${vJupiterEngine}")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${vMapper}")
 
-    implementation("com.querydsl:querydsl-mongodb:4.2.2")
-    implementation("com.querydsl:querydsl-core:4.2.2")
-    annotationProcessor("com.querydsl:querydsl-apt:4.2.2:general")
-    annotationProcessor("javax.annotation:javax.annotation-api:1.3.2")
+//    queryDSL
+    implementation("com.querydsl:querydsl-mongodb:${vDSLMongo}")
+    implementation("com.querydsl:querydsl-core:${vQueryDsl}")
+    annotationProcessor("com.querydsl:querydsl-apt:${vQueryDsl}:general")
+    annotationProcessor("javax.annotation:javax.annotation-api:${vJavax}")
 
+}
+idea {
+    module {
+        sourceDirs.add(file("generated/"))
+        generatedSourceDirs.add(file("generated/"))
+    }
 }
 
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
+
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
-    jvmArgs("--enable-preview")
-}
-tasks.withType<JavaCompile>().configureEach {
-    options.compilerArgs.add("--enable-preview")
 }

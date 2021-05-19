@@ -12,15 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.filos.web.responses.MovieDto;
 import com.filos.services.MovieService;
+import com.filos.services.SearchService;
+import com.filos.web.requests.SaveMovieRequest;
+import com.filos.web.requests.SearchRequest;
+import com.filos.web.responses.MovieDto;
+import com.filos.web.responses.PagedResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/movies")
-public class MovieController{
+public class MovieController {
     private final MovieService movieService;
+
+    private final SearchService searchService;
 
     @GetMapping("/{id}")
     public MovieDto getMovieById(@PathVariable final long id) {
@@ -29,7 +35,7 @@ public class MovieController{
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createMovie(@Valid MovieDto movie) {
+    public void createMovie(@Valid SaveMovieRequest movie) {
         movieService.create(movie);
     }
 
@@ -45,4 +51,10 @@ public class MovieController{
         return List.of();
     }
 
+    @GetMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public PagedResponse<Object> search(SearchRequest request) {
+        return searchService.searchMovies(request);
+
+    }
 }

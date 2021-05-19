@@ -3,10 +3,8 @@ package com.filos.web.responses;
 import lombok.Data;
 
 @Data
-public class Statistics{
-    private double averageVote;
-    private long votes;
+public class Statistics {
     private double budget;
     private double income;
-    private double metaScore;
+    private String releaseDate;
 }

@@ -19,6 +19,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:2.4.3")
 }
 
+tasks {
+    bootJar {
+        enabled = false
+    }
+}
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }

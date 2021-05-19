@@ -7,66 +7,96 @@
 ## Code style
 
 ## Repository Structure
+
 - **Core**
-- **Model**
-- **Email-service**
-- **Config-server**
-- **Discovery-service**
-- **Users-service**
-- **Movie-service**
-- **Recommendation-service**
-- **Statistics-service**
+    - Domain
+- **Internal**
+    - Config service
+    - Discovery service
+    - Gateway
+- **Services**
+    - **Email-service**
+    - **Image-service**
+    - **Movie-service**
+    - **Recommendation-service**
+    - **Statistics-service**
+    - **Suggestion-service**
+    - **Users-service**
+- **Utils**
+    - authentification
+    - communication
+    - data-loader
+    - tenants
 
 ---
+
 ## Technologies Index
+
 * Language
-    * Java 13 , Groovy (testing)
+    * Java 15 , Groovy (testing)
 * Base Framework
-    - Spring Boot 
+    - Spring Boot
 * Spring Cloud tools
-    - AWS 
+    - ~~AWS~~
     - Config
     - Vault
-    - Pipelines
+    - ~~Pipelines~~
     - Eureka(client/server) - service discovery
-    - Zuul - API gateway
+    - Spring Gateway
 * Databases
     - Spring Data Neo4j with Liquigraph - recommendations database
-    - Spring Data Redis  - cache and statistics
-    - Spring Data Jpa with Flyway(Postgres) 
-    - Spring Data Mongo with Mongock - user management and movie details
-    - Spring Data Solr - advanced search capabilities
+    - Spring Data Redis - cache and statistics
+    - Spring Data Jpa with Flyway(Postgres)
+    - Spring Data Mongo with QueryDsl - user management and movie details
+    - Spring Data Elasticsearch - advanced search capabilities
 * Security management
-    - Spring Security 
+    - Spring Security
 * Microservice communication
     - RabbitMQ - message broker
-    - RESTfull
+    - RESFull
 * Testing
-    - Junit5 
+    - Junit5
     - Mockito
     - Spock
 * Documentation
     - Swagger and [Stoplight](https://stoplight.io/)
 * Utility
-    - Lombok 
-    - ModelMapper - mapper 
+    - Lombok
+    - ModelMapper - mapper
+    - MapStruct - mapper
 * Other tools
-    - Maven - dependencies management
-## Communications between microservices 
+    - Gradle - dependencies management
+    - OpenFeign
 
+## Communications between microservices
+
+Communication between services is done using different method:
+
+- RESTFull
+- Messages(to be implemented)
 
 ## **Getting Started**
 
 ## Installation
 
+To download all dependencies needed for the project and to build the project you need to run:
 
 ```bash
+./gradlew build
 ```
 
 ## Usage
 
-```java
+To start a service from cli you need to run:
 
+```bash
+./gradlew name-service:bootRun
+```
+
+Where **name-service** is the location of service; Example
+
+```bash
+./gradlew sercices:movie-service:bootRun
 ```
 
 ## API Reference
@@ -74,4 +104,7 @@
 ## Tests
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Status

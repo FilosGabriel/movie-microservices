@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      database: users
+      password: mongopassword
+      username: mongodbuser
+      host: localhost
+      port: 27017
+      authentication-database: admin
+
+app:
+  file: "C:/Users/gfilos/Downloads/movie-microservices/data/tmdb_5000_movies.csv"
