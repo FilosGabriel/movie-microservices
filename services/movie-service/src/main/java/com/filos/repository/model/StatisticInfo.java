@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @QueryEntity
 public class StatisticInfo {
-    public long budget;
-    public double revenue;
-    public String releaseDate;
+    private long budget;
+    private double revenue;
+    private String releaseDate;
 
 }

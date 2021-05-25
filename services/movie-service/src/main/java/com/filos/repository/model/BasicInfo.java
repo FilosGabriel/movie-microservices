@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @QueryEntity
 public class BasicInfo {
-    public String title;
-    public String overview;
-    public String originalTitle;
-    public String tagline;
-    public double runtime;
+    private String tagline;
+    private String title;
+    private String overview;
+    private String originalTitle;
+    private double runtime;
 }

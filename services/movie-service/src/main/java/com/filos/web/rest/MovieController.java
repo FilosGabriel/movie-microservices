@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,19 +30,19 @@ public class MovieController {
     private final SearchService searchService;
 
     @GetMapping("/{id}")
-    public MovieDto getMovieById(@PathVariable final long id) {
+    public MovieDto getMovieById(@PathVariable final String id) {
         return movieService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createMovie(@Valid SaveMovieRequest movie) {
-        movieService.create(movie);
+    public MovieDto createMovie(@Valid @RequestBody SaveMovieRequest movie) {
+        return movieService.create(movie);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteMovieById(@PathVariable final long id) {
+    public void deleteMovieById(@PathVariable final String id) {
         movieService.delete(id);
     }
 

@@ -10,3 +10,12 @@ spring:
 
 app:
   file: "C:/Users/gfilos/Downloads/movie-microservices/data/tmdb_5000_movies.csv"
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG

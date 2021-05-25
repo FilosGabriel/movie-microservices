@@ -1,4 +1,4 @@
-GET localhost:8080/movies/1122222
+GET localhost:8080/movies/60abcd0b6de8c847bcfe66c2
 
 ###
 
@@ -7,21 +7,19 @@ Content-Type: application/json
 
 {
   "imdbId": "122",
-  "basic": {
-    "title": "test title",
-    "duration": 122,
-    "year": 1999,
-    "description": "some description"
-  },
-  "casting": {
-  },
-  "details": {
-  },
-  "statistics": {
-  }
+  "title": "test title",
+  "overview": "some overview",
+  "tagline": "dafsfsf",
+  "originalTitle": null,
+  "homepage": "http://localhost",
+  "originalLanguage": "en",
+  "popularity": 144.2,
+  "budget": 237000000,
+  "revenue": 1999,
+  "releaseDate": "2009-12-10"
 }
 
 ###
-GET localhost:8080/movies/search?text=ma
+GET localhost:8080/movies/search?text=test
 Content-Type: application/json
 Accept: application/json

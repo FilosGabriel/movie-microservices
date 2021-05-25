@@ -2,17 +2,20 @@ Features
 ----------
 
 - basic:
-  - data loading
+    - <span style="color:green">✔</span> data loading:
+        
 - movie:
-  - find by id:
-    - fix MovieNotFoundException
-    - mapping
-  - create a movie
-    - mapping
-    - duplicate
-    - validation
+    - <span style="color:green">✔</span> find by id
+        - ~~fix MovieNotFoundException~~
+        - ~~mapping~~
+    - create a movie
+        - ~~invalid parameter~~
+        - ~~id generation~~
+        - ~~mapping~~
+        - duplicate
+        - validation
 - genre:
-  - create
-  - validation
+    - create
+    - validation
 - search:
-  - title
+    - title

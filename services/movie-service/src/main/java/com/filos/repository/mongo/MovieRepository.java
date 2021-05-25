@@ -5,6 +5,6 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import com.filos.repository.model.Movie;
 
-public interface MovieRepository extends MongoRepository<Movie, Long>, QuerydslPredicateExecutor<Movie> {
+public interface MovieRepository extends MongoRepository<Movie, String>, QuerydslPredicateExecutor<Movie> {
 
 }

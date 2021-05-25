@@ -24,7 +24,8 @@ public class DataLoader {
 
     @PostConstruct
     public void initDbWithData() {
-        List<Movie> collect = reader.readCsv().stream()
+        List<Movie> collect = reader.readCsv()
+                                    .stream()
                                     .map(mapper::mapFromData)
                                     .collect(Collectors.toList());
         log.info("Drop collection Movie");
