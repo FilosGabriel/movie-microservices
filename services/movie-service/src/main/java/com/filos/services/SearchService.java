@@ -1,7 +1,7 @@
 package com.filos.services;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.filos.repository.model.Movie;
@@ -20,7 +20,7 @@ public class SearchService {
     private final MovieRepository movieRepository;
     private final PageConverter<Movie> converter;
 
-    public PagedResponse<Object> searchMovies(SearchRequest request) {
+    public PagedResponse<Object> searchMovies(SearchRequest request, Pageable pageable) {
         QMovie qMovie = QMovie.movie;
         Predicate predicate = OptionalFilterBuilder.builder()
                                                    .addTextFilter(qMovie.basic.title, request.getText())
@@ -34,7 +34,7 @@ public class SearchService {
                                                    .addDeniedFilter(qMovie.companies.any().id::notIn, request.getCompanies())
                                                    .build();
 
-        Page<Movie> page = movieRepository.findAll(predicate, PageRequest.of(1,100));
+        Page<Movie> page = movieRepository.findAll(predicate, pageable);
         return converter.convertToPage(request, page);
     }
 

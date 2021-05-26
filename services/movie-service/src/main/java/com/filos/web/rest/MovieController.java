@@ -3,6 +3,8 @@ package com.filos.web.rest;
 import java.util.List;
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,8 +56,8 @@ public class MovieController {
 
     @GetMapping("/search")
     @ResponseStatus(HttpStatus.OK)
-    public PagedResponse<Object> search(SearchRequest request) {
-        return searchService.searchMovies(request);
+    public PagedResponse<Object> search(@PageableDefault Pageable pageable, @Valid SearchRequest request) {
+        return searchService.searchMovies(request, pageable);
 
     }
 }

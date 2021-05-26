@@ -2,6 +2,7 @@ package com.filos.web.requests.search;
 
 import java.util.Map;
 
+import com.filos.web.requests.SearchRequest;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

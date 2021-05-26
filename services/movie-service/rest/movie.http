@@ -20,6 +20,6 @@ Content-Type: application/json
 }
 
 ###
-GET localhost:8080/movies/search?text=test
+GET localhost:8080/movies/search?genres=-28,-12,-14&text=av&page=0&size=100&runtime.min=10
 Content-Type: application/json
 Accept: application/json

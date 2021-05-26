@@ -1,12 +1,16 @@
 package com.filos.web.requests.search;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-@RequiredArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Range<T> {
-    private final T min;
-    private final T max;
+    private T min;
+    private T max;
 
 }

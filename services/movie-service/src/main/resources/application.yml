@@ -14,8 +14,9 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
+        web: TRACE
         data:
           mongodb:
             core:
               MongoTemplate: DEBUG
+        core: TRACE
