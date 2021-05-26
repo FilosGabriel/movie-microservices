@@ -7,6 +7,14 @@ spring:
       host: localhost
       port: 27017
       authentication-database: admin
+  application:
+    name: movie-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
 
 app:
   file: "C:/Users/gfilos/Downloads/movie-microservices/data/tmdb_5000_movies.csv"

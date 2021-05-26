@@ -32,6 +32,8 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:${vCommonsLang}")
 
 //  Spring boot
+    implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2020.0.0"))
+    implementation(	"org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
