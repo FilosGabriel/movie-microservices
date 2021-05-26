@@ -19,6 +19,10 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+//    Documentation
+    implementation("org.springdoc:springdoc-openapi-webflux-core:1.2.31")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.2.31")
 }
 
 tasks.getByName<Test>("test") {

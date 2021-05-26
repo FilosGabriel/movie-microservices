@@ -49,6 +49,8 @@ dependencies {
     annotationProcessor("com.querydsl:querydsl-apt:${vQueryDsl}:general")
     annotationProcessor("javax.annotation:javax.annotation-api:${vJavax}")
 
+//    Documentation
+    implementation("org.springdoc:springdoc-openapi-ui:1.5.9")
 }
 idea {
     module {

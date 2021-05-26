@@ -1,5 +1,6 @@
 package com.filos.web.responses;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data

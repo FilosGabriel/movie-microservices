@@ -1,4 +1,4 @@
-package com.filos.routes;
+package com.filos.gateway.routes;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;

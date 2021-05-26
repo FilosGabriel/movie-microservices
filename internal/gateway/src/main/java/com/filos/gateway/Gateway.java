@@ -1,4 +1,4 @@
-package com.filos;
+package com.filos.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
