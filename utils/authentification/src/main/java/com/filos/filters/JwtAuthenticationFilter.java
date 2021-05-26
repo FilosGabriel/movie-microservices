@@ -1,7 +1,7 @@
 package com.filos.filters;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
-import static com.filos.config.constants.Messages.ERROR_MESSAGE;
+import static com.filos.tenants.config.constants.Messages.ERROR_MESSAGE;
 
 import java.io.IOException;
 import java.util.Date;
@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.filos.config.properties.SecurityProperties;
+import com.filos.tenants.config.properties.SecurityProperties;
 import com.filos.dto.LoginRequest;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter{

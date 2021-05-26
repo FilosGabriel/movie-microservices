@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.filos.api.clients.moviedb.ImageTheMovieDB;
+import com.filos.tenants.api.clients.moviedb.ImageTheMovieDB;
 import com.filos.services.dto.SizeImage;
 
 @ExtendWith(MockitoExtension.class)

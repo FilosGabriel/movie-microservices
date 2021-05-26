@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.filos.api.clients.moviedb.ImageTheMovieDB;
+import com.filos.tenants.api.clients.moviedb.ImageTheMovieDB;
 import com.filos.services.dto.SizeImage;
 import lombok.RequiredArgsConstructor;
 

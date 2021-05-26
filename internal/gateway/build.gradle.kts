@@ -23,6 +23,11 @@ dependencies {
 //    Documentation
     implementation("org.springdoc:springdoc-openapi-webflux-core:1.2.31")
     implementation("org.springdoc:springdoc-openapi-webflux-ui:1.2.31")
+
+//    jwt
+    implementation("io.jsonwebtoken:jjwt-api:0.11.1")
+    implementation("io.jsonwebtoken:jjwt-impl:0.11.1")
+    implementation("io.jsonwebtoken:jjwt-jackson:0.11.1")
 }
 
 tasks.getByName<Test>("test") {

@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import com.filos.config.ImageConfiguration;
+import com.filos.tenants.config.ImageConfiguration;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
