@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.filos.tenants.config.DataLoader;
+import com.filos.config.DataLoader;
 import com.filos.utils.collectors.DataCollector;
 import lombok.SneakyThrows;
 

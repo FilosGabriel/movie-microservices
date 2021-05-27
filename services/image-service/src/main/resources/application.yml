@@ -1,0 +1,4 @@
+movie-db:
+  key: df3030b08f9d78cc74efc436beaade61
+  url: https://image.tmdb.org/
+  sourcePath: .

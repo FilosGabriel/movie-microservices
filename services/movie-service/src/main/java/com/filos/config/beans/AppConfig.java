@@ -1,4 +1,4 @@
-package com.filos.tenants.config.beans;
+package com.filos.config.beans;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

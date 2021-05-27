@@ -1,4 +1,4 @@
-package com.filos.tenants.config;
+package com.filos.config;
 
 import javax.annotation.PostConstruct;
 

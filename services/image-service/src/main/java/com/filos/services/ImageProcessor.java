@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import org.springframework.stereotype.Service;
 
-import com.filos.services.dto.SizeImage;
+import com.filos.services.dto.ImageInformation;
 import lombok.SneakyThrows;
 import net.coobird.thumbnailator.Thumbnailator;
 
@@ -14,7 +14,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class ImageProcessor {
 
     @SneakyThrows
-    public byte[] resize(byte[] data, SizeImage size) {
+    public byte[] resize(byte[] data, ImageInformation size) {
         InputStream inputStream = new ByteArrayInputStream(data);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         Thumbnailator.createThumbnail(inputStream, outputStream, size.getXSize(), size.getYSize());

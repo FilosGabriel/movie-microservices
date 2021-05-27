@@ -1,4 +1,4 @@
-package com.filos.tenants.config.web;
+package com.filos.config.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

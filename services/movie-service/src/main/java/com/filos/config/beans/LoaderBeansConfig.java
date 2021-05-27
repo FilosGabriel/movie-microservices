@@ -1,4 +1,4 @@
-package com.filos.tenants.config.beans;
+package com.filos.config.beans;
 
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;

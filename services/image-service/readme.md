@@ -2,21 +2,17 @@
 
 ## Description
 
-This is a service that fetch the images from TheMovieDb and cache locally, also this service is capable of manipulation and tranformation of
-images. Supported operations are:
+This is a service that fetch the images from TheMovieDb and cache locally, also this service is capable of manipulation and transformation
+of images. Supported operations are:
 
 - resize
-- convert
-- more in progress
-
-## Build status
-
----
+- convert to webp
+- local caching jpg format
 
 ## Technologies Index
 
 * Language
-    * Java 13
+    * Java 11
 * Framework
     - Spring Boot Web
 * Spring Cloud tools
@@ -29,13 +25,14 @@ images. Supported operations are:
     - Junit5
     - Mockito
 * Documentation
-    - Swagger and [Stoplight](https://stoplight.io/)
+    - Swagger
 * Utility
     - Lombok
 * Image processing
     - Thumbnailator
+    - ImageIO
 * Other tools
-    - Maven - dependencies management
+    - Gradle - dependencies management
 
 ## **Getting Started**
 
@@ -51,16 +48,20 @@ mvn spring-boot:run
 
 2) Using Docker In progress
 
-## Usage
+[comment]: <> (## Usage)
 
-```java
+[comment]: <> (```java)
 
-```
+[comment]: <> (```)
 
 ## API Reference
 
 ## Tests
 
 ## License
+
+## Bugs
+
+- ~~image not prefixed with type~~
 
 [MIT](https://choosealicense.com/licenses/mit/)

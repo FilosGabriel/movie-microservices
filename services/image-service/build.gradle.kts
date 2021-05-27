@@ -24,6 +24,8 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:3.9.0")
     testRuntimeOnly("com.google.guava:guava:30.1-jre")
     implementation("org.apache.commons:commons-imaging:1.0-alpha2")
+    implementation("org.sejda.imageio:webp-imageio:0.1.6")
+//    implementation("com.twelvemonkeys.imageio:imageio-webp:3.7.0")
 }
 
 
