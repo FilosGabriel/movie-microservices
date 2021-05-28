@@ -21,7 +21,4 @@ public class ImageProcessor {
         return outputStream.toByteArray();
     }
 
-    public byte[] getThumbnail(byte[] data) {
-        return null;
-    }
 }

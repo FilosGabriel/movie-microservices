@@ -14,13 +14,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.filos.moviedb.ImageTheMovieDB;
+//import com.filos.services.dto.SizeImage;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("When image service ")
 @Disabled
 class ImageServiceTest {
 
-//    private final SizeImage size = new SizeImage("",10, 10);
+//    private final SizeImage size = new SizeImage("", 10, 10);
     private static final String fileName = "test1.jpg";
 
     @Mock
@@ -35,10 +36,11 @@ class ImageServiceTest {
 
     @BeforeEach
     public void init() throws IOException {
-        imageService = new ImageService(imageRepository, imageProcessor, webClient);
+        //        imageService = new ImageService(imageRepository, imageProcessor, webClient);
 
         ClassLoader classLoader = getClass().getClassLoader();
-        Path path = new File(classLoader.getResource(fileName).getFile()).toPath();
+        Path path = new File(classLoader.getResource(fileName)
+                                        .getFile()).toPath();
         mockImage = Files.readAllBytes(path);
 
     }
@@ -47,11 +49,12 @@ class ImageServiceTest {
     @DisplayName(" load image from local storage it should return the file from storage ")
     public void loadFromLocalStorage() {
         // Given
-//        Mockito.lenient().when(imageRepository.tryToGetLocalImage(fileName, size.toString()))
+//        Mockito.lenient()
+//               .when(imageRepository.tryToGetLocalImage(fileName, size.toString()))
 //               .thenReturn(Optional.of(mockImage));
 
         // When
-//        byte[] imageReturnedByService = imageService.getImage( size);
+        //        byte[] imageReturnedByService = imageService.getImage( size);
         // Then
     }
 }
